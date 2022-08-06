@@ -1,0 +1,1 @@
+export const SearchTTH = () => <h1>SearchTTH</h1>
