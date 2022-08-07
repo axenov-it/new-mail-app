@@ -1,10 +1,9 @@
-import { SearchTTH } from './SearchTTH'
-
+import { NavigateTabs } from './components'
 function App() {
   return (
     <div className="App">
       <h1>New Mail</h1>
-      <SearchTTH />
+      <NavigateTabs />
     </div>
   );
 }

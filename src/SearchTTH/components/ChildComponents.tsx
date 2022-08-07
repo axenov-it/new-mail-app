@@ -1,1 +1,0 @@
-export const ChildComponents = () => <h3>ChildComponents</h3>
