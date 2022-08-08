@@ -1,10 +1,11 @@
-
+import { NavigateTabs, Page } from './components'
 
 function App() {
   return (
-    <div className="App">
+    <Page>
       <h1>New Mail</h1>
-    </div>
+      <NavigateTabs />
+    </Page>
   );
 }
 
