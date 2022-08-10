@@ -1,4 +1,4 @@
-import { NavigateTabs, Page } from './components'
+import { NavigateTabs, Page } from "./components";
 
 function App() {
   return (
