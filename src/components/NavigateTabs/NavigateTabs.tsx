@@ -17,12 +17,13 @@ export function NavigateTabs() {
         .MuiTabs-flexContainer {
           width: 100%;
           justify-content: space-around;
+          margin-top: 50px;
         }
         .MuiTabs-indicator {
           background: red;
         }
         .Mui-selected {
-          color: black;
+          color: black !important;
           font-weight: bold;
         }
       `}

@@ -18,19 +18,45 @@ export const SearchTTH = () => {
         }
         .MuiButton-root {
           min-width: 200px;
+          height: 50px;
+          margin-top: 40px;
           background-color: red;
           font-size: 16px;
           font-weight: bold;
           border-radius: 10px;
         }
+        @media (max-width: 500px) {
+          display: flex;
+          flex-direction: column;
+        }
       `}
     >
-      <TextField
-        error={errors.DocumentNumber}
-        id="outlined-basic"
-        label="Введіть ТТН"
-        variant="outlined"
-      />
+      <div
+        css={css`
+          display: flex;
+          flex-direction: column;
+          gap: 20px;
+        `}
+      >
+        <TextField
+          error={errors.DocumentNumber}
+          id="outlined-basic"
+          label="Введіть ТТН"
+          placeholder="20400048799000"
+          variant="outlined"
+          name="DocumentNumber"
+        />
+
+        <TextField
+          error={errors.DocumentNumber}
+          id="outlined-basic"
+          label="Номер телефону"
+          placeholder="380600000000"
+          variant="outlined"
+          name="Phone"
+        />
+      </div>
+
       <Button type="submit" variant="contained" size="large">
         Знайти
       </Button>

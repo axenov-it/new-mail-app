@@ -1,7 +1,8 @@
 import { useState } from "react";
 
 interface fields {
-    DocumentNumber: string;
+    DocumentNumber: number;
+    Phone: string
 }
 
 const initialErrors = {
@@ -20,10 +21,10 @@ export const useSearchTTH = () => {
 
     const newErrors = {...initialErrors}
 
-    if(!/^[0-9]{14}$/.test(fields.DocumentNumber)){
-        newErrors.DocumentNumber = true;
-        isValid = false;
-    }
+    // if(!/^[0-9]{14}$/.test(fields.DocumentNumber)){
+    //     newErrors.DocumentNumber = true;
+    //     isValid = false;
+    // }
 
     setErrors(newErrors)
 
@@ -33,8 +34,13 @@ export const useSearchTTH = () => {
     const useSubmitSearchTTH = (event:any) =>{
         event.preventDefault();
 
-        //if(validate({DocumentNumber: event.target.DocumentNumber.value})) return;
+        const TTH = event.target.DocumentNumber.value;
+        const Phone = event.target.Phone.value;
+
+        //if(!validate({DocumentNumber: event.target.DocumentNumber.value})) return;
         
+//59000842722895 ТТН для проверки 380979851103
+
         fetch("https://api.novaposhta.ua/v2.0/json/", {
         method: "POST",
         body: JSON.stringify({
@@ -42,17 +48,13 @@ export const useSearchTTH = () => {
             modelName: "TrackingDocument",
             calledMethod: "getStatusDocuments",
             methodProperties: {
-                "Documents" : [
+                "Documents": [
                     {
-                    "DocumentNumber":"20400048799000",
-                    "Phone":"380600000000"
-                    }
-                    ,
-                    {
-                    "DocumentNumber":"20400048799001",
-                    "Phone":"380600000000"
-                    }
-                    ]
+                        DocumentNumber: TTH,
+                        Phone: Phone
+                    },
+                    
+                ]
             },
         }),
         })
