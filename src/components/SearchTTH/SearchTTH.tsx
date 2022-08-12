@@ -5,7 +5,7 @@ import Button from "@mui/material/Button";
 import { useSearchTTH } from "./hooks";
 
 export const SearchTTH = () => {
-  const { useSubmitSearchTTH, errors } = useSearchTTH();
+  const { useSubmitSearchTTH } = useSearchTTH();
 
   return (
     <form
@@ -39,21 +39,19 @@ export const SearchTTH = () => {
         `}
       >
         <TextField
-          error={errors.DocumentNumber}
           id="outlined-basic"
           label="Введіть ТТН"
           placeholder="20400048799000"
           variant="outlined"
-          name="DocumentNumber"
+          name="documentNumber"
         />
 
         <TextField
-          error={errors.DocumentNumber}
           id="outlined-basic"
           label="Номер телефону"
           placeholder="380600000000"
           variant="outlined"
-          name="Phone"
+          name="phone"
         />
       </div>
 
