@@ -1,9 +1,9 @@
-import { NavigateTabs, Page } from './components'
+import { Header, NavigateTabs, Page } from "./components";
 
 function App() {
   return (
     <Page>
-      <h1>New Mail</h1>
+      <Header />
       <NavigateTabs />
     </Page>
   );

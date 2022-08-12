@@ -1,28 +1,51 @@
-import Tabs from '@mui/material/Tabs';
-import Tab from '@mui/material/Tab';
-import Box from '@mui/material/Box';
-import { TabPanel } from './views'
-import { useNavigate } from './hooks'
-
-
+/** @jsxImportSource @emotion/react */
+import { css } from "@emotion/react";
+import Tabs from "@mui/material/Tabs";
+import Tab from "@mui/material/Tab";
+import Box from "@mui/material/Box";
+import { TabPanel } from "./views";
+import { useNavigate } from "./hooks";
+import { ListPost } from "./views";
+import { SearchTTH } from "../SearchTTH";
 
 export function NavigateTabs() {
-    const { a11yProps, handleChange, value } = useNavigate();
+  const { a11yProps, handleChange, value } = useNavigate();
 
-    return (
-        <Box sx={{ width: '100%' }}>
-            <Box>
-                <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
-                    <Tab label="Поиск ТТН" {...a11yProps(0)} />
-                    <Tab label="Список отделений" {...a11yProps(1)} />
-                </Tabs>
-            </Box>
-            <TabPanel value={value} index={0}>
-                Поиск ТТН
-            </TabPanel>
-            <TabPanel value={value} index={1}>
-                Список отделений
-            </TabPanel>
-        </Box>
-    );
+  return (
+    <Box
+      css={css`
+        .MuiTabs-flexContainer {
+          width: 100%;
+          justify-content: space-around;
+          margin-top: 50px;
+        }
+        .MuiTabs-indicator {
+          background: red;
+        }
+        .Mui-selected {
+          color: black !important;
+          font-weight: bold;
+        }
+      `}
+    >
+      <Box>
+        <Tabs
+          value={value}
+          onChange={handleChange}
+          aria-label="basic tabs example"
+        >
+          <Tab label="Відстежити ТТН" {...a11yProps(0)} />
+          <Tab label="Перелік відділень" {...a11yProps(1)} />
+        </Tabs>
+      </Box>
+      <TabPanel value={value} index={0}>
+        <SearchTTH />
+      </TabPanel>
+      <TabPanel value={value} index={1}>
+        <div>
+          <ListPost />
+        </div>
+      </TabPanel>
+    </Box>
+  );
 }
