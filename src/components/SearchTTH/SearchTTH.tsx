@@ -3,9 +3,16 @@ import { css } from "@emotion/react";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import { useSearchTTH } from "./hooks";
+import { useAppDispatch, setInfo } from "../../redux";
+import { TTHInfoState } from "../../redux";
 
 export const SearchTTH = () => {
   const { useSubmitSearchTTH } = useSearchTTH();
+  const dispatch = useAppDispatch();
+
+  const onSearchInfoTTH = (ttnInfo: TTHInfoState) => {
+    dispatch(setInfo(ttnInfo));
+  };
 
   return (
     <form
@@ -24,6 +31,9 @@ export const SearchTTH = () => {
           font-size: 16px;
           font-weight: bold;
           border-radius: 10px;
+        }
+        .MuiButton-root:hover {
+          background: #c50606f6;
         }
         @media (max-width: 500px) {
           display: flex;
@@ -55,7 +65,14 @@ export const SearchTTH = () => {
         />
       </div>
 
-      <Button type="submit" variant="contained" size="large">
+      <Button
+        type="submit"
+        variant="contained"
+        size="large"
+        onClick={() =>
+          onSearchInfoTTH({ status, number, recipientAddress, warehouseSender })
+        }
+      >
         Знайти
       </Button>
     </form>

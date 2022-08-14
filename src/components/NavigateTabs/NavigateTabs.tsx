@@ -7,6 +7,7 @@ import { TabPanel } from "./views";
 import { useNavigate } from "./hooks";
 import { ListPost } from "./views";
 import { SearchTTH } from "../SearchTTH";
+import { ListInfo } from "../ListInfo";
 
 export function NavigateTabs() {
   const { a11yProps, handleChange, value } = useNavigate();
@@ -16,7 +17,7 @@ export function NavigateTabs() {
       css={css`
         .MuiTabs-flexContainer {
           width: 100%;
-          justify-content: space-around;
+          justify-content: center;
           margin-top: 50px;
         }
         .MuiTabs-indicator {
@@ -25,6 +26,9 @@ export function NavigateTabs() {
         .Mui-selected {
           color: black !important;
           font-weight: bold;
+        }
+        .MuiTab-root {
+          font-size: 18px;
         }
       `}
     >
@@ -40,6 +44,7 @@ export function NavigateTabs() {
       </Box>
       <TabPanel value={value} index={0}>
         <SearchTTH />
+        <ListInfo />
       </TabPanel>
       <TabPanel value={value} index={1}>
         <div>
