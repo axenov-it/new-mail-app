@@ -3,16 +3,9 @@ import { css } from "@emotion/react";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import { useSearchTTH } from "./hooks";
-import { useAppDispatch, setInfo } from "../../redux";
-import { TTHInfoState } from "../../redux";
 
 export const SearchTTH = () => {
   const { useSubmitSearchTTH } = useSearchTTH();
-  const dispatch = useAppDispatch();
-
-  const onSearchInfoTTH = (ttnInfo: TTHInfoState) => {
-    dispatch(setInfo(ttnInfo));
-  };
 
   return (
     <form
@@ -65,14 +58,7 @@ export const SearchTTH = () => {
         />
       </div>
 
-      <Button
-        type="submit"
-        variant="contained"
-        size="large"
-        onClick={() =>
-          onSearchInfoTTH({ status, number, recipientAddress, warehouseSender })
-        }
-      >
+      <Button type="submit" variant="contained" size="large">
         Знайти
       </Button>
     </form>

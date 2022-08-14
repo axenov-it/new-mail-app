@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useAppDispatch, setInfo } from "../../../redux";
+import { TTHInfoState } from "../../../redux";
 
 interface fields {
   DocumentNumber: number;
@@ -6,6 +7,12 @@ interface fields {
 }
 
 export const useSearchTTH = () => {
+  const dispatch = useAppDispatch();
+
+  const onSearchInfoTTH = (ttnInfo: TTHInfoState) => {
+    dispatch(setInfo(ttnInfo));
+  };
+
   const useSubmitSearchTTH = (event: any) => {
     event.preventDefault();
 
@@ -30,7 +37,16 @@ export const useSearchTTH = () => {
     })
       .then((response) => response.json())
       .then((result) => {
-        console.log(result.data);
+        const dataTTH = result.data ? result.data[0] : {};
+
+        dispatch(
+          setInfo({
+            number: dataTTH.Number,
+            recipientAddress: dataTTH.RecipientAddress,
+            status: dataTTH.Status,
+            warehouseSender: dataTTH.WarehouseSender,
+          })
+        );
       });
   };
 

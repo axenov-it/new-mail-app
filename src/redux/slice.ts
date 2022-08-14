@@ -10,10 +10,10 @@ export interface TTHInfoState {
 }
 
 const initialState: TTHInfoState = {
-  status: "jnyj",
-  number: "jytdj",
-  warehouseSender: "djy",
-  recipientAddress: "dyjjd",
+  status: "",
+  number: "",
+  warehouseSender: "",
+  recipientAddress: "",
 };
 
 export const tthInfoSlice = createSlice({
@@ -21,11 +21,10 @@ export const tthInfoSlice = createSlice({
   initialState,
   reducers: {
     setInfo: (state, action: PayloadAction<TTHInfoState>) => {
-      state.status += action.payload;
-      state.number += action.payload;
-      state.warehouseSender += action.payload;
-      state.recipientAddress += action.payload;
-      return { ...state, ttnInfo: action.payload };
+      state.status = action.payload.status;
+      state.number = action.payload.number;
+      state.warehouseSender = action.payload.warehouseSender;
+      state.recipientAddress = action.payload.recipientAddress;
     },
   },
 });
