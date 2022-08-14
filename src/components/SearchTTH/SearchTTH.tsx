@@ -25,6 +25,9 @@ export const SearchTTH = () => {
           font-weight: bold;
           border-radius: 10px;
         }
+        .MuiButton-root:hover {
+          background: #c50606f6;
+        }
         @media (max-width: 500px) {
           display: flex;
           flex-direction: column;

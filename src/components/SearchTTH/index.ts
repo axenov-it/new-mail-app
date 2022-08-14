@@ -1,1 +1,1 @@
-export * from './SearchTTH'
+export * from "./SearchTTH";
